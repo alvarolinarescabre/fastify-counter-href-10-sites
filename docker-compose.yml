@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  fastify-href-counter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastify-href-counter
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - PORT=8080
+      - CACHE_EXPIRE=60
+      - MAX_CONCURRENCY=12
+      - REQUEST_TIMEOUT=30000
+      - CORS_ORIGIN=*
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "const http = require('http'); const options = { host: 'localhost', port: 8080, path: '/healthcheck', timeout: 2000 }; const req = http.request(options, (res) => { process.exit(res.statusCode === 200 ? 0 : 1); }); req.on('error', () => process.exit(1)); req.end();"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - fastify-network
+
+networks:
+  fastify-network:
+    driver: bridge
