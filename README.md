@@ -105,16 +105,16 @@ CORS_ORIGIN=*           # Allowed origin for CORS
 
 The system analyzes these URLs by default:
 
-1. https://example.com
-2. https://httpbin.org
-3. https://jsonplaceholder.typicode.com
-4. https://reqres.in
-5. https://cat-fact.herokuapp.com
-6. https://dog.ceo
-7. https://api.github.com
-8. https://httpstat.us
-9. https://randomuser.me
-10. https://api.coindesk.com
+1. https://go.dev
+2. https://www.python.org
+3. https://www.realpython.com
+4. https://nodejs.org
+5. https://www.facebook.com
+6. https://www.gitlab.com
+7. https://www.youtube.com
+8. https://www.mozilla.org
+9. https://www.github.com
+10. https://www.google.com
 
 ## 🎯 Usage
 
