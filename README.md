@@ -230,7 +230,7 @@ The documentation includes:
 The project includes a production-optimized Dockerfile:
 
 ```dockerfile
-FROM node:18-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
